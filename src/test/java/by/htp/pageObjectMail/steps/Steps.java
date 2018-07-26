@@ -1,15 +1,14 @@
 package by.htp.pageObjectMail.steps;
 
-import java.util.concurrent.TimeUnit;
-
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
 
 import by.htp.pageObjectMail.driver.DriverSingleton;
 import by.htp.pageObjectMail.pages.CreateNewRepositoryPage;
 import by.htp.pageObjectMail.pages.LoginPage;
+import by.htp.pageObjectMail.pages.MailLoginPage;
+
 import by.htp.pageObjectMail.pages.MainPage;
 
 public class Steps {
@@ -27,6 +26,13 @@ public class Steps {
 
 	public void loginGithub(String username, String password) {
 		LoginPage loginPage = new LoginPage(driver);
+		loginPage.openPage();
+		loginPage.login(username, password);
+	}
+	
+	// my method
+	public void loginMail(String username, String password) {
+		MailLoginPage loginPage = new MailLoginPage(driver);
 		loginPage.openPage();
 		loginPage.login(username, password);
 	}
